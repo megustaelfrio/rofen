@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora Actual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #hora {
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>La hora actual es:</h1>
+    <div id="hora"></div>
+
+    <script>
+        function mostrarHora() {
+            var fecha = new Date();
+            var horas = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+
+            // Agregar un cero delante si el número es menor que 10
+            horas = horas < 10 ? '0' + horas : horas;
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+
+            var horaActual = horas + ':' + minutos + ':' + segundos;
+            document.getElementById('hora').textContent = horaActual;
+        }
+
+        // Actualizar la hora cada segundo
+        setInterval(mostrarHora, 1000);
+
+        // Mostrar la hora al cargar la página
+        mostrarHora();
+    </script>
+</body>
+</html>
